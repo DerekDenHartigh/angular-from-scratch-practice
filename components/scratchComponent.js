@@ -12,6 +12,11 @@ function scratchComponentController(scratchService, $q, $scope){
         console.log(newName);
         ctrl.userInput = newName;
     }
+
+    ctrl.changeNameAgain = function(newName){
+        console.log(newName);
+        ctrl.userInput = newName;
+    }
 };
 
 angular
@@ -22,7 +27,7 @@ angular
         <h1>Hello {{userInput}} - scoped variable</h1>
         <input type="text" ng-model="userInput"></input>
         <button ng-click="$ctrl.changeName(userInput)">changes ctrl.userInput</button>
-        <scratch-child></scratch-child>
+        <scratch-child user-input="userInput" change-name-again="$ctrl.changeNameAgain(newName)"></scratch-child>
         `,
     controller: scratchComponentController
 });
